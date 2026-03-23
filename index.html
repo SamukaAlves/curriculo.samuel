@@ -6,311 +6,66 @@
     <title>Samuel Lima Alves - Currículo</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', Arial, sans-serif;
-            line-height: 1.4;
-            color: #333;
-            background: #f5f5f5;
-            padding: 20px;
-        }
-
-        .container {
-            max-width: 210mm;
-            margin: 0 auto;
-            background: white;
-            display: flex;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-            min-height: 297mm;
-        }
-
-        .sidebar {
-            background: linear-gradient(135deg, #2c5282, #1a365d);
-            color: white;
-            width: 35%;
-            padding: 40px 30px;
-            position: relative;
-        }
-
-        .profile-section {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-
-        .profile-photo {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            background: #4a5568;
-            margin: 0 auto 20px;
-            position: relative;
-            overflow: hidden;
-            border: 4px solid rgba(255,255,255,0.2);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .profile-photo img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 50%;
-            display: block;
-        }
-
-        .name {
-            font-size: 24px;
-            font-weight: 700;
-            letter-spacing: 1px;
-            margin-bottom: 10px;
-        }
-
-        .sidebar h3 {
-            color: white;
-            font-size: 18px;
-            font-weight: 600;
-            margin: 30px 0 15px 0;
-            padding-bottom: 8px;
-            border-bottom: 2px solid rgba(255,255,255,0.3);
-        }
-
-        .contact-info {
-            list-style: none;
-            margin-bottom: 30px;
-        }
-
-        .contact-info li {
-            margin-bottom: 12px;
-            font-size: 13px;
-            line-height: 1.5;
-            display: flex;
-            align-items: center;
-        }
-
-        .contact-info .icon {
-            margin-right: 6px;
-            vertical-align: middle;
-            flex-shrink: 0;
-        }
-
-        .contact-info strong {
-            display: block;
-            font-weight: 600;
-            margin-bottom: 3px;
-            color: #e2e8f0;
-        }
-
-        .skills-list {
-            list-style: none;
-        }
-
-        .skills-list li {
-            margin-bottom: 10px;
-            font-size: 13px;
-            font-weight: 500;
-        }
-
-        .skill-level {
-            font-weight: 400;
-            color: #cbd5e0;
-            margin-left: 5px;
-        }
-
-        .main-content {
-            flex: 1;
-            padding: 40px 45px;
-            background: white;
-        }
-
-        .section {
-            margin-bottom: 35px;
-        }
-
-        .section h2 {
-            color: #2d3748;
-            font-size: 22px;
-            font-weight: 700;
-            margin-bottom: 20px;
-            padding-bottom: 8px;
-            border-bottom: 3px solid #2c5282;
-            position: relative;
-        }
-
-        .profile-text {
-            font-size: 14px;
-            line-height: 1.6;
-            color: #4a5568;
-            text-align: justify;
-        }
-
-        .education-item, .experience-item {
-            margin-bottom: 25px;
-        }
-
-        .degree, .job-title {
-            font-size: 16px;
-            font-weight: 600;
-            color: #2d3748;
-            margin-bottom: 5px;
-        }
-
-        .institution, .company {
-            font-size: 14px;
-            color: #2c5282;
-            font-weight: 500;
-            margin-bottom: 5px;
-        }
-
-        .date {
-            font-size: 12px;
-            color: #718096;
-            font-weight: 500;
-            margin-bottom: 10px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .responsibilities {
-            list-style: none;
-            padding-left: 0;
-        }
-
-        .responsibilities li {
-            font-size: 13px;
-            line-height: 1.5;
-            color: #4a5568;
-            margin-bottom: 8px;
-            padding-left: 15px;
-            position: relative;
-        }
-
-        .responsibilities li::before {
-            content: "▸";
-            position: absolute;
-            left: 0;
-            color: #2c5282;
-            font-weight: bold;
-        }
-
-        /* Impressão aprimorada */
-        @media print {
-            body {
-                padding: 0;
-                background: white;
-                color: #222;
-            }
-            .container {
-                box-shadow: none;
-                max-width: none;
-                margin: 0;
-            }
-            .sidebar {
-                background: #2c5282 !important;
-                color: #fff !important;
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-            }
-            .section h2 {
-                border-bottom: 2px solid #2c5282 !important;
-            }
-            @page {
-                margin: 0;
-                size: A4;
-            }
-        }
-
-        /* Responsividade extra para mobile */
-        @media (max-width: 900px) {
-            .container {
-                flex-direction: column;
-                min-height: auto;
-                max-width: 100vw;
-            }
-            .sidebar {
-                width: 100%;
-                padding: 30px 15px;
-            }
-            .main-content {
-                padding: 30px 15px;
-            }
-        }
-
-        @media (max-width: 600px) {
-            .name {
-                font-size: 18px;
-            }
-            .section h2 {
-                font-size: 18px;
-            }
-            .profile-photo {
-                width: 80px;
-                height: 80px;
-            }
-        }
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body { font-family:'Inter', Arial, sans-serif; line-height:1.4; color:#333; background:#f5f5f5; padding:20px; }
+        .container { max-width:210mm; margin:0 auto; background:white; display:flex; box-shadow:0 4px 20px rgba(0,0,0,0.1); min-height:297mm; }
+        .sidebar { background:linear-gradient(135deg,#2c5282,#1a365d); color:white; width:35%; padding:40px 30px; }
+        .profile-section { text-align:center; margin-bottom:40px; }
+        .profile-photo { width:120px; height:120px; border-radius:50%; background:#4a5568; margin:0 auto 20px; overflow:hidden; border:4px solid rgba(255,255,255,0.2); display:flex; align-items:center; justify-content:center; }
+        .profile-photo img { width:100%; height:100%; object-fit:cover; border-radius:50%; }
+        .name { font-size:24px; font-weight:700; margin-bottom:10px; }
+        .sidebar h3 { font-size:18px; margin:30px 0 15px; border-bottom:2px solid rgba(255,255,255,0.3); }
+        .contact-info, .skills-list { list-style:none; }
+        .contact-info li { margin-bottom:10px; font-size:13px; }
+        .skills-list li { margin-bottom:8px; font-size:13px; }
+        .skill-level { color:#cbd5e0; margin-left:5px; }
+        .main-content { flex:1; padding:40px 45px; }
+        .section { margin-bottom:30px; }
+        .section h2 { font-size:22px; margin-bottom:15px; border-bottom:3px solid #2c5282; }
+        .profile-text { font-size:14px; color:#4a5568; text-align:justify; }
+        .experience-item { margin-bottom:20px; }
+        .job-title { font-weight:600; }
+        .date { font-size:12px; color:#718096; margin-bottom:8px; }
+        .responsibilities { list-style:none; }
+        .responsibilities li { margin-bottom:6px; font-size:13px; position:relative; padding-left:12px; }
+        .responsibilities li::before { content:"▸"; position:absolute; left:0; color:#2c5282; }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="sidebar">
-            <div class="profile-section">
-                <div class="profile-photo">
-                    <img src="shared image.jpg" alt="Foto de perfil de Samuel Lima Alves"
-                        onerror="this.onerror=null;this.src='https://ui-avatars.com/api/?name=Samuel+Lima+Alves&background=2c5282&color=fff&size=120';">
-                </div>
-                <h1 class="name">SAMUEL LIMA ALVES</h1>
-            </div>
+<div class="container">
 
-            <h3>Dados pessoais</h3>
-            <ul class="contact-info">
-                <li>
-                    <span class="icon">
-                        <img src="localizacao.png" alt="Ícone localização" width="16" height="16" style="vertical-align:middle;">
-                    </span>
-                    <strong>Distrito Federal - Brasil</strong> 
-                </li>
-                <li>
-                    <span class="icon">
-                        <img src="contato.png" alt="Ícone telefone" width="16" height="16" style="vertical-align:middle;">
-                    </span>
-                    <strong>(61) 99917-4042</strong>
-                </li>
-                <li>
-                    <span class="icon">
-                        <img src="mail.png" alt="Ícone e-mail" width="16" height="16" style="vertical-align:middle;">
-                    </span>
-                    <strong>
-                        <a href="mailto:contatosamuel.lima23@gmail.com" style="color:#e2e8f0; text-decoration:none;">
-                            contatosamuel.lima23@gmail.com
-                        </a>
-                    </strong>
-                </li>
-            </ul>
+<div class="sidebar">
+    <div class="profile-section">
+        <div class="profile-photo">
+            <img src="Mídia (1).jpg" onerror="this.src='https://ui-avatars.com/api/?name=Samuel+Lima+Alves&background=2c5282&color=fff'">
+        </div>
+        <h1 class="name">SAMUEL LIMA ALVES</h1>
+    </div>
 
-            <h3>Competências</h3>
-            <ul class="skills-list">
-                <li>Python <span class="skill-level">- Intermediário</span></li>
-                <li>SQL <span class="skill-level">- Básico</span></li>
-                <li>Tableau <span class="skill-level">- Intermediário</span></li>
-                <li>UiPath <span class="skill-level">- Básico</span></li>
-                <li>Power BI <span class="skill-level">- Básico</span></li>
-                <li>Pacote Office <span class="skill-level">- Intermediário</span></li>
-            </ul>
+    <h3>Dados pessoais</h3>
+    <ul class="contact-info">
+        <li>Distrito Federal - Brasil</li>
+        <li>(61) 99917-4042</li>
+        <li><a href="mailto:contatosamuel.lima23@gmail.com" style="color:#e2e8f0;">contatosamuel.lima23@gmail.com</a></li>
+    </ul>
 
-            <h3>Idiomas</h3>
-            <ul class="skills-list">
-                <li>Japonês <span class="skill-level">- Básico</span></li>
-                <li>Inglês <span class="skill-level">- Avançado</span></li>
-            </ul>
+    <h3>Competências</h3>
+    <ul class="skills-list">
+        <li>Python <span class="skill-level">(automação e dados)</span></li>
+        <li>SQL <span class="skill-level">(consultas)</span></li>
+        <li>Tableau <span class="skill-level">(dashboards)</span></li>
+        <li>Power BI <span class="skill-level">(visualização)</span></li>
+        <li>Excel <span class="skill-level">(intermediário)</span></li>
+    </ul>
 
-            <h3>Links</h3>
-            <ul class="skills-list">
+    <h3>Idiomas</h3>
+    <ul class="skills-list">
+        <li>Inglês - Avançado</li>
+        <li>Japonês - Básico</li>
+    </ul>
+
+    <h3>Links</h3>
+  <ul class="skills-list">
                 <li>
                     <a href="https://www.linkedin.com/in/samuel-lima-alves-b16628268" target="_blank" style="color:#cbd5e0; text-decoration:none; font-size:13px; display:flex; align-items:center;">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#cbd5e0" viewBox="0 0 24 24" style="margin-right:6px;">
@@ -327,78 +82,72 @@
                         GitHub
                     </a>
                 </li>
-            </ul>
-        </div>
+    </ul>
+</div>
 
-        <div class="main-content">
-            <div class="section">
-                <h2>Perfil</h2>
-                <p class="profile-text">
-                    Profissional dinâmico com experiência em operações administrativas e planejamento orçamentário, atualmente aprimorando sua experiência em Análise e Desenvolvimento de Sistemas. Capacidade comprovada de implementar soluções de automação e controle analítico de dados, impulsionando melhorias de processos na área de tesouraria. Proficiente em Python e Tableau, utilizando sólidas habilidades analíticas para promover a resolução de problemas. Comprometido em aprimorar a eficiência operacional e entregar resultados impactantes por meio de uma combinação de conhecimento técnico e administrativo.
-                </p>
-                <p class="profile-text" style="margin-top:10px;">
-                    <strong>Objetivo:</strong> Atuar como analista de dados ou desenvolvedor, aplicando conhecimentos técnicos para otimizar processos e gerar valor para a organização.
-                </p>
-            </div>
+<div class="main-content">
 
-            <div class="section">
-                <h2>Formação</h2>
-                <div class="education-item">
-                    <div class="degree">Superior em Análise e Desenvolvimento de Sistemas, IESB</div>
-                    <div class="date">Conclusão em 2026</div>
-                </div>
-            </div>
+<div class="section">
+<h2>Perfil</h2>
+<p class="profile-text">
+Profissional com experiência em operações administrativas e planejamento orçamentário, em transição para a área de tecnologia e dados. Atua na automação de processos com Python, desenvolvimento de dashboards no Tableau e análise de dados para suporte à tomada de decisão. Possui perfil analítico e foco em eficiência operacional, buscando gerar valor por meio da tecnologia.
+</p>
+</div>
 
-            <div class="section">
-                <h2>Experiência profissional</h2>
-                
-                <div class="experience-item">
-                    <div class="job-title">Estagiário de Tecnologia, Funpresp-Jud</div>
-                    <div class="date">Jan 2025 – Atual</div>
-                    <ul class="responsibilities">
-                        <li>Realizar conciliações bancárias</li>
-                        <li>Agendar pagamentos e acompanhar os respectivos processos no sistema SEI</li>
-                        <li>Atualizar Autorizações de Fornecimento (AFs) no sistema Trust</li>
-                        <li>Elaborar queries para consultas em bancos de dados da fundação</li>
-                        <li>Criar e atualizar painéis interativos no Tableau</li>
-                        <li>Desenvolver fluxogramas dos processos da tesouraria</li>
-                        <li>Automatizar rotinas utilizando Python, UiPath e outras ferramentas</li>
-                    </ul>
-                </div>
+<div class="section">
+<h2>Experiência profissional</h2>
 
-                <div class="experience-item">
-                    <div class="job-title">Assistente de Operações Administrativas, IMOBILL SERVIÇOS EM TECNOLOGIA LTDA</div>
-                    <div class="date">Jun 2023 – Jan 2025</div>
-                    <ul class="responsibilities">
-                        <li>Receber e analisar documentação para assegurar conformidade e segurança jurídica</li>
-                        <li>Acompanhar e atualizar processos bancários relacionados à alienação fiduciária (Lei 9.514/97)</li>
-                        <li>Desarquivar certidões em diferentes órgãos de registro</li>
-                        <li>Participar da capacitação de novos profissionais</li>
-                        <li>Analisar dados e elaborar relatórios para suporte à tomada de decisões</li>
-                        <li>Apresentar resultados mensais e trimestrais</li>
-                        <li>Prestar suporte a credoras como Caixa, Bradesco, Santander, Inter e Sicoob</li>
-                    </ul>
-                </div>
+<div class="experience-item">
+<div class="job-title">Estagiário de Tecnologia - Funpresp-Jud</div>
+<div class="date">Jan 2025 – Atual</div>
+<ul class="responsibilities">
+<li>Automatização de rotinas com Python</li>
+<li>Desenvolvimento de queries para dados</li>
+<li>Criação de dashboards no Tableau</li>
+<li>Mapeamento de processos</li>
+<li>Análise de dados financeiros</li>
+<li>Conciliações bancárias</li>
+</ul>
+</div>
 
-                <div class="experience-item">
-                    <div class="job-title">Balconista, Agrocastro</div>
-                    <div class="date">Set 2020 – Mai 2023</div>
-                    <ul class="responsibilities">
-                        <li>Atender clientes</li>
-                        <li>Realizar vendas e organizar o ambiente de trabalho</li>
-                    </ul>
-                </div>
+<div class="experience-item">
+<div class="job-title">Assistente Administrativo - Imobill</div>
+<div class="date">Jun 2023 – Jan 2025</div>
+<ul class="responsibilities">
+<li>Análise documental</li>
+<li>Relatórios gerenciais</li>
+<li>Treinamento de equipe</li>
+<li>Desarquivar certidões em diferentes órgãos de registro</li>
+</ul>
+</div>
 
-                <div class="experience-item">
-                    <div class="job-title">Auxiliar em Varejo, CIEE (C&A)</div>
-                    <div class="date">Mar 2018 – Ago 2019</div>
-                    <ul class="responsibilities">
-                        <li>Atender clientes</li>
-                        <li>Organizar estoque, realizar vendas e abastecer a loja</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
+</div>
+
+<div class="section">
+<h2>Projetos</h2>
+<ul class="responsibilities">
+<li><strong>Autosei:</strong> automação desktop em Python com Selenium para a inclusão de documentos no sistema SEI(GitHub)</li>
+<li>Automação de extratos via API Banco do Brasil(GitHub)</li>
+<li>Dashboards no Tableau</li>
+<li>Scripts de automação em Python</li>
+</ul>
+</div>
+
+<div class="section">
+<h2>Formação</h2>
+<p>Superior em Análise e Desenvolvimento de Sistemas - IESB (2026)</p>
+</div>
+
+<div class="section">
+<h2>Cursos</h2>
+<ul class="responsibilities">
+<li>Data Analysis with Python – IBM</li>
+<li>Santander Bootcamp – AWS</li>
+</ul>
+</div>
+
+</div>
+
+</div>
 </body>
 </html>

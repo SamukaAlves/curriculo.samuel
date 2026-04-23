@@ -4,150 +4,273 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Samuel Lima Alves - Currículo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-        * { margin:0; padding:0; box-sizing:border-box; }
-        body { font-family:'Inter', Arial, sans-serif; line-height:1.4; color:#333; background:#f5f5f5; padding:20px; }
-        .container { max-width:210mm; margin:0 auto; background:white; display:flex; box-shadow:0 4px 20px rgba(0,0,0,0.1); min-height:297mm; }
-        .sidebar { background:linear-gradient(135deg,#2c5282,#1a365d); color:white; width:35%; padding:40px 30px; }
-        .profile-section { text-align:center; margin-bottom:40px; }
-        .profile-photo { width:120px; height:120px; border-radius:50%; background:#4a5568; margin:0 auto 20px; overflow:hidden; border:4px solid rgba(255,255,255,0.2); display:flex; align-items:center; justify-content:center; }
-        .profile-photo img { width:100%; height:100%; object-fit:cover; border-radius:50%; }
-        .name { font-size:24px; font-weight:700; margin-bottom:10px; }
-        .sidebar h3 { font-size:18px; margin:30px 0 15px; border-bottom:2px solid rgba(255,255,255,0.3); }
-        .contact-info, .skills-list { list-style:none; }
-        .contact-info li { margin-bottom:10px; font-size:13px; }
-        .skills-list li { margin-bottom:8px; font-size:13px; }
-        .skill-level { color:#cbd5e0; margin-left:5px; }
-        .main-content { flex:1; padding:40px 45px; }
-        .section { margin-bottom:30px; }
-        .section h2 { font-size:22px; margin-bottom:15px; border-bottom:3px solid #2c5282; }
-        .profile-text { font-size:14px; color:#4a5568; text-align:justify; }
-        .experience-item { margin-bottom:20px; }
-        .job-title { font-weight:600; }
-        .date { font-size:12px; color:#718096; margin-bottom:8px; }
-        .responsibilities { list-style:none; }
-        .responsibilities li { margin-bottom:6px; font-size:13px; position:relative; padding-left:12px; }
-        .responsibilities li::before { content:"▸"; position:absolute; left:0; color:#2c5282; }
+        :root {
+            --navy: #1a2e4a;
+            --accent: #3b82f6;
+            --accent-light: #93c5fd;
+            --gray-100: #f1f5f9;
+            --gray-500: #64748b;
+            --gray-700: #334155;
+            --text: #1e293b;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'IBM Plex Sans', Arial, sans-serif;
+            background: #dde4ed;
+            padding: 32px 20px;
+            color: var(--text);
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+        .page {
+            max-width: 210mm;
+            margin: 0 auto;
+            background: #fff;
+            display: flex;
+            min-height: 297mm;
+            box-shadow: 0 8px 40px rgba(0,0,0,0.18);
+        }
+        /* SIDEBAR */
+        .sidebar {
+            width: 34%;
+            background: var(--navy);
+            color: #fff;
+            padding: 36px 26px;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+        .profile-photo { width: 108px; height: 108px; border-radius: 50%; margin: 0 auto 14px; overflow: hidden; border: 3px solid rgba(147,197,253,.4); }
+        .profile-photo img { width: 100%; height: 100%; object-fit: cover; }
+        .profile-name { font-size: 18px; font-weight: 700; text-align: center; letter-spacing: .4px; line-height: 1.3; }
+        .profile-role { text-align: center; font-size: 11px; font-weight: 400; color: var(--accent-light); margin-top: 5px; letter-spacing: 1.2px; text-transform: uppercase; }
+        .sidebar-section { display: flex; flex-direction: column; gap: 9px; }
+        .sidebar-title { font-size: 10px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--accent-light); padding-bottom: 5px; border-bottom: 1px solid rgba(147,197,253,.25); }
+        .contact-list { list-style: none; display: flex; flex-direction: column; gap: 7px; }
+        .contact-list li { font-size: 12px; color: #cbd5e1; display: flex; align-items: flex-start; gap: 7px; }
+        .contact-list a { color: #cbd5e1; text-decoration: none; }
+        .skill-group { margin-bottom: 9px; }
+        .skill-group-label { font-size: 10px; font-weight: 600; color: var(--accent-light); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 5px; }
+        .skill-tags { display: flex; flex-wrap: wrap; gap: 4px; }
+        .tag { background: rgba(59,130,246,.18); border: 1px solid rgba(59,130,246,.35); color: #e2e8f0; font-size: 11px; padding: 2px 7px; border-radius: 3px; font-family: 'IBM Plex Mono', monospace; }
+        .lang-list { list-style: none; display: flex; flex-direction: column; gap: 5px; }
+        .lang-list li { font-size: 12px; color: #cbd5e1; display: flex; justify-content: space-between; }
+        .lang-level { color: var(--accent-light); font-size: 11px; }
+        .link-list { list-style: none; display: flex; flex-direction: column; gap: 7px; }
+        .link-list a { color: #cbd5e1; text-decoration: none; font-size: 12px; display: flex; align-items: center; gap: 6px; }
+        /* MAIN */
+        .main { flex: 1; padding: 34px 38px; display: flex; flex-direction: column; gap: 22px; }
+        .section-title { font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--navy); padding-bottom: 5px; border-bottom: 2px solid var(--accent); margin-bottom: 11px; }
+        .profile-text { font-size: 12.5px; color: var(--gray-700); line-height: 1.7; text-align: justify; }
+        .exp-item { margin-bottom: 16px; }
+        .exp-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 2px; }
+        .exp-title { font-size: 13.5px; font-weight: 600; color: var(--navy); }
+        .exp-date { font-size: 10.5px; color: var(--accent); font-family: 'IBM Plex Mono', monospace; white-space: nowrap; margin-left: 6px; }
+        .exp-company { font-size: 11.5px; color: var(--gray-500); margin-bottom: 7px; font-weight: 500; }
+        .bullets { list-style: none; display: flex; flex-direction: column; gap: 4px; }
+        .bullets li { font-size: 12px; color: var(--gray-700); padding-left: 13px; position: relative; line-height: 1.5; }
+        .bullets li::before { content: "▸"; position: absolute; left: 0; color: var(--accent); font-size: 10px; top: 2px; }
+        .bullets strong { color: var(--navy); font-weight: 600; }
+        .project-item { margin-bottom: 11px; }
+        .project-name { font-size: 13px; font-weight: 600; color: var(--navy); display: flex; align-items: center; gap: 6px; }
+        .project-badge { font-size: 10px; font-family: 'IBM Plex Mono', monospace; background: var(--gray-100); color: var(--accent); border: 1px solid #dbeafe; padding: 1px 6px; border-radius: 3px; }
+        .project-desc { font-size: 12px; color: var(--gray-500); margin-top: 2px; line-height: 1.5; }
+        .project-tech { font-size: 11px; color: var(--accent); font-family: 'IBM Plex Mono', monospace; margin-top: 3px; }
+        .edu-title { font-size: 13px; font-weight: 600; color: var(--navy); }
+        .edu-sub { font-size: 12px; color: var(--gray-500); }
+        .course-list { display: flex; flex-direction: column; gap: 5px; }
+        .course-item { font-size: 12.5px; color: var(--gray-700); padding-left: 13px; position: relative; }
+        .course-item::before { content: "▸"; position: absolute; left: 0; color: var(--accent); font-size: 10px; top: 2px; }
+        .course-item span { color: var(--gray-500); }
+
+        /* PRINT */
+        @media print {
+            @page { size: A4; margin: 0; }
+            html, body { margin: 0; padding: 0; background: white !important; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+            body { padding: 0 !important; }
+            .page { box-shadow: none !important; width: 210mm !important; min-height: 297mm !important; max-width: 100% !important; margin: 0 !important; }
+            .sidebar { background: var(--navy) !important; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+            a { text-decoration: none; }
+        }
     </style>
 </head>
 <body>
-<div class="container">
-
-<div class="sidebar">
-    <div class="profile-section">
+<div class="page">
+<aside class="sidebar">
+    <div>
         <div class="profile-photo">
-            <img src="Mídia (1).jpg" onerror="this.src='https://ui-avatars.com/api/?name=Samuel+Lima+Alves&background=2c5282&color=fff'">
+            <img src="profile.jpg" alt="Samuel Lima Alves" onerror="this.src='https://ui-avatars.com/api/?name=Samuel+Lima+Alves&background=1a2e4a&color=93c5fd&size=200'">
         </div>
-        <h1 class="name">SAMUEL LIMA ALVES</h1>
+        <div class="profile-name">SAMUEL LIMA ALVES</div>
+        <div class="profile-role">Analista de Dados · Backend</div>
     </div>
+    <div class="sidebar-section">
+        <div class="sidebar-title">Contato</div>
+        <ul class="contact-list">
+            <li>
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink:0;margin-top:1px"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                Distrito Federal, Brasil
+            </li>
+            <li>
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink:0;margin-top:1px"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.18C2.17 2.8 2.96 2 3.92 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                (61) 99917-4042
+            </li>
+            <li>
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink:0;margin-top:1px"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                <a href="mailto:contatosamuel.lima23@gmail.com">contatosamuel.lima23@gmail.com</a>
+            </li>
+        </ul>
+    </div>
+    <div class="sidebar-section">
+        <div class="sidebar-title">Competências Técnicas</div>
+        <div class="skill-group">
+            <div class="skill-group-label">Linguagens &amp; Dados</div>
+            <div class="skill-tags">
+                <span class="tag">Python</span><span class="tag">SQL</span><span class="tag">Pandas</span><span class="tag">NumPy</span><span class="tag">Bash</span>
+            </div>
+        </div>
+        <div class="skill-group">
+            <div class="skill-group-label">Banco de Dados</div>
+            <div class="skill-tags">
+                <span class="tag">MySQL</span><span class="tag">PostgreSQL</span><span class="tag">NoSQL</span><span class="tag">ETL</span>
+            </div>
+        </div>
+        <div class="skill-group">
+            <div class="skill-group-label">Backend &amp; APIs</div>
+            <div class="skill-tags">
+                <span class="tag">REST API</span><span class="tag">FastAPI</span><span class="tag">Selenium</span><span class="tag">Requests</span>
+            </div>
+        </div>
+        <div class="skill-group">
+            <div class="skill-group-label">Cloud &amp; DevOps</div>
+            <div class="skill-tags">
+                <span class="tag">Git</span><span class="tag">GitHub</span><span class="tag">AWS</span>
+            </div>
+        </div>
+        <div class="skill-group">
+            <div class="skill-group-label">Visualização</div>
+            <div class="skill-tags">
+                <span class="tag">Tableau</span><span class="tag">Power BI</span><span class="tag">Excel</span>
+            </div>
+        </div>
+    </div>
+    <div class="sidebar-section">
+        <div class="sidebar-title">Idiomas</div>
+        <ul class="lang-list">
+            <li>Inglês <span class="lang-level">Avançado</span></li>
+            <li>Japonês <span class="lang-level">Básico</span></li>
+        </ul>
+    </div>
+    <div class="sidebar-section">
+        <div class="sidebar-title">Links</div>
+        <ul class="link-list">
+            <li>
+                <a href="https://www.linkedin.com/in/samuel-lima-alves-b16628268" target="_blank">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.268c-.966 0-1.75-.784-1.75-1.75s.784-1.75 1.75-1.75 1.75.784 1.75 1.75-.784 1.75-1.75 1.75zm13.5 11.268h-3v-5.604c0-1.337-.026-3.063-1.868-3.063-1.868 0-2.154 1.459-2.154 2.967v5.7h-3v-10h2.881v1.367h.041c.401-.761 1.379-1.563 2.838-1.563 3.036 0 3.6 2 3.6 4.59v5.606z"/></svg>
+                    LinkedIn
+                </a>
+            </li>
+            <li>
+                <a href="https://github.com/SamukaAlves" target="_blank">
+                    <svg width="13" height="13" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.22 2.2.82a7.65 7.65 0 0 1 2-.27c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.28.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.19 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+                    GitHub
+                </a>
+            </li>
+        </ul>
+    </div>
+</aside>
 
-    <h3>Dados pessoais</h3>
-    <ul class="contact-info">
-        <li>Distrito Federal - Brasil</li>
-        <li>(61) 99917-4042</li>
-        <li><a href="mailto:contatosamuel.lima23@gmail.com" style="color:#e2e8f0;">contatosamuel.lima23@gmail.com</a></li>
-    </ul>
+<main class="main">
+    <section>
+        <div class="section-title">Perfil</div>
+        <p class="profile-text">
+            Desenvolvedor e analista de dados com experiência em <strong>automação de pipelines ETL</strong>,
+            integração via <strong>APIs REST</strong> e construção de scripts Python para coleta, transformação
+            e carga de grandes volumes de dados. Vivência prática com <strong>bancos de dados relacionais
+            (MySQL, PostgreSQL)</strong> e manipulação avançada com Pandas e NumPy. Versionamento contínuo
+            via <strong>Git/GitHub</strong>. Capacidade de entregar soluções de backend escaláveis, orientadas
+            a dados, com foco em eficiência operacional e qualidade de código.
+        </p>
+    </section>
 
-    <h3>Competências</h3>
-    <ul class="skills-list">
-        <li>Python <span class="skill-level">(automação e dados)</span></li>
-        <li>SQL <span class="skill-level">(consultas)</span></li>
-        <li>Tableau <span class="skill-level">(dashboards)</span></li>
-        <li>Power BI <span class="skill-level">(visualização)</span></li>
-        <li>Excel <span class="skill-level">(intermediário)</span></li>
-    </ul>
+    <section>
+        <div class="section-title">Experiência Profissional</div>
 
-    <h3>Idiomas</h3>
-    <ul class="skills-list">
-        <li>Inglês - Avançado</li>
-        <li>Japonês - Básico</li>
-    </ul>
+        <div class="exp-item">
+            <div class="exp-header">
+                <div class="exp-title">Estagiário de Tecnologia</div>
+                <div class="exp-date">Jan 2025 – Atual</div>
+            </div>
+            <div class="exp-company">Funpresp-Jud · Brasília, DF</div>
+            <ul class="bullets">
+                <li>Desenvolveu <strong>pipelines ETL em Python</strong> para coleta, limpeza e transformação de dados financeiros, reduzindo o tempo de conciliação manual</li>
+                <li>Criou <strong>queries SQL complexas</strong> (JOINs, subqueries, CTEs) sobre base MySQL para relatórios gerenciais automáticos</li>
+                <li>Integrou dados de sistemas internos via <strong>consumo de APIs REST</strong> com Requests, tratando paginação e autenticação</li>
+                <li>Construiu <strong>dashboards no Tableau</strong> conectados a banco de dados, com atualização automática de indicadores</li>
+                <li>Versionou todos os scripts e automações no <strong>Git/GitHub</strong> com histórico e documentação</li>
+                <li>Automatizou rotinas repetitivas eliminando processos manuais e reduzindo erros operacionais</li>
+            </ul>
+        </div>
 
-    <h3>Links</h3>
-  <ul class="skills-list">
-                <li>
-                    <a href="https://www.linkedin.com/in/samuel-lima-alves-b16628268" target="_blank" style="color:#cbd5e0; text-decoration:none; font-size:13px; display:flex; align-items:center;">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#cbd5e0" viewBox="0 0 24 24" style="margin-right:6px;">
-                            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.268c-.966 0-1.75-.784-1.75-1.75s.784-1.75 1.75-1.75 1.75.784 1.75 1.75-.784 1.75-1.75 1.75zm13.5 11.268h-3v-5.604c0-1.337-.026-3.063-1.868-3.063-1.868 0-2.154 1.459-2.154 2.967v5.7h-3v-10h2.881v1.367h.041c.401-.761 1.379-1.563 2.838-1.563 3.036 0 3.6 2 3.6 4.59v5.606z"/>
-                        </svg>
-                        LinkedIn
-                    </a>
-                </li>
-                <li>
-                    <a href="https://github.com/SamukaAlves" target="_blank" style="color:#cbd5e0; text-decoration:none; font-size:13px; display:flex; align-items:center;">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#cbd5e0" viewBox="0 0 16 16" style="margin-right:6px;">
-                            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.22 2.2.82a7.65 7.65 0 0 1 2-.27c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.28.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.19 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
-                        </svg>
-                        GitHub
-                    </a>
-                </li>
-    </ul>
-</div>
+        <div class="exp-item">
+            <div class="exp-header">
+                <div class="exp-title">Assistente Administrativo</div>
+                <div class="exp-date">Jun 2023 – Jan 2025</div>
+            </div>
+            <div class="exp-company">Imobill · Brasília, DF</div>
+            <ul class="bullets">
+                <li>Gerou relatórios gerenciais com <strong>Excel avançado</strong> e análises de performance operacional</li>
+                <li>Realizou análise documental e controle de processos, identificando gargalos e propondo melhorias</li>
+                <li>Treinou equipe em novos fluxos e ferramentas de trabalho</li>
+            </ul>
+        </div>
+    </section>
 
-<div class="main-content">
+    <section>
+        <div class="section-title">Projetos</div>
 
-<div class="section">
-<h2>Perfil</h2>
-<p class="profile-text">
-Profissional com experiência em operações administrativas e planejamento orçamentário, em transição para a área de tecnologia e dados. Atua na automação de processos com Python, desenvolvimento de dashboards no Tableau e análise de dados para suporte à tomada de decisão. Possui perfil analítico e foco em eficiência operacional, buscando gerar valor por meio da tecnologia.
-</p>
-</div>
+        <div class="project-item">
+            <div class="project-name">CNAB Converter – Remessa Bancária <span class="project-badge">Python · PyQt5 · Pandas</span></div>
+            <div class="project-desc">Aplicação desktop que lê planilhas Excel exportadas de dashboards Power BI e gera arquivos de remessa no padrão <strong>CNAB 240 (Banco do Brasil)</strong>. Suporta múltiplos pagadores via <code style="font-family:monospace;font-size:11px;background:#f1f5f9;padding:1px 4px;border-radius:2px;">config.json</code>, validação automática de CPF/CNPJ, agência, conta e valores monetários. Processa segmentos A e B garantindo exatamente 240 caracteres por linha.</div>
+            <div class="project-tech">Stack: Python · PyQt5 · Pandas · openpyxl · Power BI (origem dos dados)</div>
+        </div>
 
-<div class="section">
-<h2>Experiência profissional</h2>
+        <div class="project-item">
+            <div class="project-name">Autosei <span class="project-badge">Python · Selenium · GitHub</span></div>
+            <div class="project-desc">Automação desktop para inclusão de documentos no sistema SEI. Simula interações via Selenium, eliminando inserção manual de centenas de registros.</div>
+            <div class="project-tech">Stack: Python · Selenium · WebDriver · Git</div>
+        </div>
 
-<div class="experience-item">
-<div class="job-title">Estagiário de Tecnologia - Funpresp-Jud</div>
-<div class="date">Jan 2025 – Atual</div>
-<ul class="responsibilities">
-<li>Automatização de rotinas com Python</li>
-<li>Desenvolvimento de queries para dados</li>
-<li>Criação de dashboards no Tableau</li>
-<li>Mapeamento de processos</li>
-<li>Análise de dados financeiros</li>
-<li>Conciliações bancárias</li>
-</ul>
-</div>
+        <div class="project-item">
+            <div class="project-name">Pipeline API Banco do Brasil <span class="project-badge">REST API · ETL · GitHub</span></div>
+            <div class="project-desc">Pipeline de extração de extratos bancários via API REST, com tratamento, transformação e persistência dos dados para análise financeira.</div>
+            <div class="project-tech">Stack: Python · Requests · Pandas · JSON · Git</div>
+        </div>
 
-<div class="experience-item">
-<div class="job-title">Assistente Administrativo - Imobill</div>
-<div class="date">Jun 2023 – Jan 2025</div>
-<ul class="responsibilities">
-<li>Análise documental</li>
-<li>Relatórios gerenciais</li>
-<li>Treinamento de equipe</li>
-<li>Desarquivar certidões em diferentes órgãos de registro</li>
-</ul>
-</div>
+        <div class="project-item">
+            <div class="project-name">Dashboards Financeiros <span class="project-badge">Tableau · SQL</span></div>
+            <div class="project-desc">Painéis interativos conectados a banco MySQL para monitoramento de KPIs com drill-down e filtros dinâmicos.</div>
+            <div class="project-tech">Stack: Tableau · MySQL · SQL</div>
+        </div>
+    </section>
 
-</div>
+    <section>
+        <div class="section-title">Formação</div>
+        <div class="edu-title">Tecnólogo em Análise e Desenvolvimento de Sistemas</div>
+        <div class="edu-sub">IESB · Previsão de conclusão: 2026</div>
+    </section>
 
-<div class="section">
-<h2>Projetos</h2>
-<ul class="responsibilities">
-<li><strong>Autosei:</strong> automação desktop em Python com Selenium para a inclusão de documentos no sistema SEI(GitHub)</li>
-<li>Automação de extratos via API Banco do Brasil(GitHub)</li>
-<li>Dashboards no Tableau</li>
-<li>Scripts de automação em Python</li>
-</ul>
-</div>
-
-<div class="section">
-<h2>Formação</h2>
-<p>Superior em Análise e Desenvolvimento de Sistemas - IESB (2026)</p>
-</div>
-
-<div class="section">
-<h2>Cursos</h2>
-<ul class="responsibilities">
-<li>Data Analysis with Python – IBM</li>
-<li>Santander Bootcamp – AWS</li>
-</ul>
-</div>
-
-</div>
-
+    <section>
+        <div class="section-title">Cursos &amp; Certificações</div>
+        <div class="course-list">
+            <div class="course-item">Data Analysis with Python <span>· IBM / Coursera</span></div>
+            <div class="course-item">Santander Bootcamp – Cloud com AWS <span>· Santander / DIO</span></div>
+        </div>
+    </section>
+</main>
 </div>
 </body>
 </html>
